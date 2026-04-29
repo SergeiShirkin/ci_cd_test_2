@@ -1,21 +1,20 @@
-name: CI_CD_for_project
+name: CI_CD_for_web_site
 
 on:
   push:
-    branches: [ main ]
-  pull_request: 
-    branches: [ main ]
+    branches: [ gh-pages ]
 
 jobs:
-  job_1:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Print text
-      run: echo "Test concole for CI/CD"
+    - name: Deploy for GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
 
-    - name: Print date
-      run: date
