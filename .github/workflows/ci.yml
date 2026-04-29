@@ -2,7 +2,7 @@ name: CI_CD_for_web_site
 
 on:
   push:
-    branches: [ gh-pages ]
+    branches: [ main ]
 
 jobs:
   deploy:
